@@ -19,11 +19,10 @@
       isOpen = true;
     }
     else {
-      innerMenu.classList.remove('animate__animated', 'animate__fadeInLeft');
+      innerMenu.classList.remove('animate__animated', 'animate__fadeInLeft');      
       isOpen = false;
     }
   };
-
   
 
   openMenuBtn.addEventListener('click', toggleMenu);
@@ -35,6 +34,8 @@
     if (!e.matches) return;
     mobileMenu.classList.remove('is-open');
     openMenuBtn.setAttribute('aria-expanded', false);
-    bodyScrollLock.enableBodyScroll(document.body);
+    body.classList.toggle('no-scroll');
+    innerMenu.classList.remove('animate__animated', 'animate__fadeInLeft');
+    isOpen = false;
   });
 })();

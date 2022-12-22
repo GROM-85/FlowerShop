@@ -16,9 +16,11 @@
 
     function subscribeModal() {        
         refs.modal.classList.toggle("is-hidden");
-        refs.body.classList.toggle("no-scroll");        
+        refs.body.classList.toggle("no-scroll");
+        
         [...refs.inputElems].forEach(elem => {
             elem.classList.remove('error', 'animate__animated', 'animate__tada');
+            elem.value = null;
         })
         
     };
@@ -49,8 +51,7 @@
             }
 
             if (isValid === true) {
-                refs.form.classList.add('animate__animated', 'animate__bounceOut');
-                
+                subscribeModal();             
                 
             }
         }

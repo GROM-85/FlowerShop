@@ -9,12 +9,25 @@
     }
   }
 }
-.logo__icon {
-  @media screen and (min-width: $tablet) {
-    width: 72px;
-    height: 57px;
+.logo{ 
+
+  &__icon{
+    width: 45px;
+    height: 35px;
+    fill:currentColor;
+
+    @media screen and (min-width: $tablet) {
+        width: 72px;
+        height: 57px;
+      }
+  }
+
+  &:hover,&:focus{
+    color:$brand-color;
   }
 }
+
+
 .nav {
   &__list {
     display: none;
@@ -44,17 +57,30 @@
 .contact__icon {
   width: 24px;
   height: 24px;
+
+&:hover,&:focus{
+  fill:$brand-color;
+}
+
 }
 .burger-menu {
   padding: 0;
   margin-left: 16px;
   border: none;
   background-color: transparent;
+
   @media screen and (min-width: $tablet) {
     display: none;
   }
+
+  &:hover,
+  &:focus {
+    color: $brand-color;
+  }
+
   &__icon {
     display: block;
+    fill:currentColor;    
   }
 }
 
@@ -78,23 +104,35 @@
     visibility: visible;
     pointer-events: auto;
   }
+
   &__inner {
     position: relative;
     padding: 16px;
   }
+
   @media screen and (min-width: $tablet) {
     display: none;
   }
+
   &__close-btn {
     position: absolute;
     top: 16;
     right: 0;
-    padding: 0;
+    padding: 7px;
     background-color: transparent;
-    border: none;
+    border: none; 
+    
+    &:hover,
+    &:focus {      
+      transform: rotateZ(360deg);
+      transform-origin: center center;
+      transition: transform 400ms ease;
+    }
   }
   &__icon {
     display: block;
+    fill:currentColor;  
+
   }
   &__list {
     margin-top: 124px;
@@ -112,7 +150,7 @@
 
       &:hover,
       &:focus {
-        color: $brand-color;
+        color: $primary-color;
     }
   }
 }

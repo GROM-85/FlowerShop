@@ -28,7 +28,7 @@
         }
         else if(/animated/.test(refs.modal.classList.value)){
             refs.form.classList.remove("animate__zoomIn");
-            refs.form.classList.add("animate__animated","animate__zoomOut");
+            refs.form.classList.add("animate__animated","animate__fadeOutLeft");
             refs.modal.classList.add("animate__animated","animate__fadeOut");
             setTimeout(removeAnimation,1000);
         }
@@ -38,7 +38,7 @@
 
     function removeAnimation(){
         refs.modal.classList.add("is-hidden");
-        refs.form.classList.remove("animate__animated","animate__zoomOut","animate__zoomIn");
+        refs.form.classList.remove("animate__animated","animate__zoomIn","animate__fadeOutLeft");
         refs.modal.classList.remove("animate__animated","animate__fadeOut","animate__fadeIn");
     }
 

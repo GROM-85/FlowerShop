@@ -15,15 +15,42 @@
 
 
     function subscribeModal() {        
-        refs.modal.classList.toggle("is-hidden");
-        refs.body.classList.toggle("no-scroll");
         
+        refs.body.classList.toggle("no-scroll");
+        clearInputs();
+
+        if(/is-hidden/.test(refs.modal.classList.value)){
+            console.log("hidden removed")
+            refs.modal.classList.remove("is-hidden");
+            refs.form.classList.add("animate__animated","animate__zoomIn");
+            refs.modal.classList.add("animate__animated","animate__fadeIn");
+            
+        }
+        else if(/animated/.test(refs.modal.classList.value)){
+            refs.form.classList.remove("animate__zoomIn");
+            refs.form.classList.add("animate__animated","animate__zoomOut");
+            refs.modal.classList.add("animate__animated","animate__fadeOut");
+            setTimeout(removeAnimation,1000);
+        }
+        
+        
+    };
+
+    function removeAnimation(){
+        refs.modal.classList.add("is-hidden");
+        refs.form.classList.remove("animate__animated","animate__zoomOut","animate__zoomIn");
+        refs.modal.classList.remove("animate__animated","animate__fadeOut","animate__fadeIn");
+    }
+
+    const clearInputs = () => {
+
         [...refs.inputElems].forEach(elem => {
             elem.classList.remove('error', 'animate__animated', 'animate__tada');
             elem.value = null;
         })
-        
-    };
+
+        refs.subscribeBtn.classList.remove("active");
+    }
 
     const validation = () => {        
         
@@ -51,12 +78,40 @@
             }
 
             if (isValid === true) {
-                subscribeModal();             
-                
+                subscribeModal();                
             }
+        }
+    };
+
+    function validateInputByKeyUp(inputs){
+        
+        let validEmail = false;
+
+        for (let i = 0; i < inputs.length; i++) {
+        let input = inputs[i];
+        
+        if (input.name === "email") {
+            
+            console.log(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(input.value));
+            validEmail = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(input.value);
+            if (validEmail) {
+                input.classList.remove('error', 'animate__animated', 'animate__tada');            
+            }         
+        }
+
+        }  
+        return validEmail ;
+    }
+
+
+    const sendSubForm = (e) =>{
+        e.preventDefault();
+        let checkValid  = validateInputByKeyUp([...refs.inputElems]);
+        if(checkValid){
+            refs.subscribeBtn.classList.add("active");
         }
     }
 
     refs.subscribeBtn.addEventListener("click", validation);
-    
+    refs.form.addEventListener("keyup",(e) => sendSubForm(e));
 })();

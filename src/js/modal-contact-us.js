@@ -29,9 +29,31 @@
       refs.body.classList.toggle("no-scroll")
     }
 
+    if (/^modal-contact-us$/.test(refs.modalSend.classList.value)){
+      refs.modalSend.classList.add("animate__animated",'animate__zoomIn');
+    }
+    else {
+      refs.modalSend.classList.remove("animate__animated",'animate__zoomIn');
+    };
+
+    if(/modal-thank-you$/.test(refs.modalThanks.classList.value)){
+      refs.modalThanks.classList.add("animate__animated",'animate__zoomIn');
+    }
+    else if(/is-hidden/.test(refs.modalThanks.classList.value)){
+      refs.modalThanks.classList.remove("animate__animated",'animate__zoomIn');
+      refs.modalSend.classList.remove("is-hidden");
+
+    }
+
     
     clearInputs();
       
+  }
+
+  function removeAnimationContact(obj){
+    if(obj.classList.value){
+
+    }
   }
     
     const clearInputs = () => {
@@ -120,7 +142,7 @@
 
   refs.continueBtn.addEventListener("click", () => toggleModal(refs.modal));
   refs.continueBtn.addEventListener("click", () => toggleModal(refs.modalThanks));
-  refs.continueBtn.addEventListener("click", () => toggleModal(refs.modalSend));
+  // refs.continueBtn.addEventListener("click", () => toggleModal(refs.modalSend));
 
   refs.sendBtn.addEventListener("click", validationByBtn);
   refs.formSend.addEventListener("keyup", (e) => sendForm(e));

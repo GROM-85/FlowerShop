@@ -14,19 +14,28 @@
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
+
+    & .modal-contact-us{
+        opacity: 0;
+    }
 }
 
 .modal-contact-us {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    bottom:0;
+    right:0;
+    margin:auto;
     width: 272px;
+    height:380px;
     padding: 28px 16px;
+    opacity:1;
     background-color:$basic-white;
    
     @media screen and (min-width : 768px){
-         width: 480px;
+        width: 480px;
+        height: 520px;
         padding: 48px 32px;
     
     
@@ -177,19 +186,23 @@
 
 
 .modal-thank-you {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 272px;
     position: absolute;
+    top: 0;
+    left: 0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    width: 272px;
+    height:380px;
     padding: 32px 16px;
     text-align: center;
     background-color: $basic-white;
-    margin: 0 auto;
+    
  
     @media screen and (min-width : 768px){
     
         width: 480px;
+        height: 520px;
         padding: 54px 32px;
 
     }

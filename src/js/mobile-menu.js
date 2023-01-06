@@ -34,7 +34,7 @@
     if (!e.matches) return;
     mobileMenu.classList.remove('is-open');
     openMenuBtn.setAttribute('aria-expanded', false);
-    body.classList.toggle('no-scroll');
+    body.classList.remove('no-scroll');
     innerMenu.classList.remove('animate__animated', 'animate__fadeInLeft');
     isOpen = false;
   });

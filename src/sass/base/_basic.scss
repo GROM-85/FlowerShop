@@ -50,16 +50,16 @@ body {
   padding: 0 16px;
 
   @media screen and (min-width: $mobile) {
-    width: $mobile;
+    max-width: $mobile;
   }
 
   @media screen and (min-width: $tablet) {
-    width: $tablet;
+    max-width: $tablet;
     padding: 0 24px;
   }
 
   @media screen and (min-width: $desktop) {
-    width: $desktop;
+    max-width: $desktop;
   }
 }
 

@@ -1,0 +1,2 @@
+var titles=document.querySelectorAll(".title"),observer=new IntersectionObserver((function(e,t){e.forEach((function(e){e.isIntersecting&&(console.log(e),e.target.classList.toggle("animate__slideInLeft",e.isIntersecting),e.target.nextElementSibling.classList.toggle("animate__slideInRight",e.isIntersecting))}))}),{threshold:1});titles.forEach((function(e){observer.observe(e)}));
+//# sourceMappingURL=index.6c667e98.js.map
